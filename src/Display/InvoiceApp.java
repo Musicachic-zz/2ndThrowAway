@@ -26,9 +26,7 @@ import java.util.*;
 
 public class InvoiceApp
 {
-	//public static ArrayList<Product> invoice = new ArrayList<>();
-	public static Map<Product, Integer> invoice = new HashMap<>();
-	//public static Iterator<Map.Entry<Product,Integer>> iter = invoice.entrySet().iterator();
+	public static ArrayList<Product> invoice = new ArrayList<>();
 	private static int invoiceSize = 0;
 	public int quantityPurchased = 0;
 
@@ -57,16 +55,9 @@ public class InvoiceApp
 				{
 					askForQuantity();
 					int quantity = sc.nextInt();
-					//p.setQuantity(quantity);
-					//invoice.add(p);
-					Integer invoiceQuantity = invoice.get(p);
-					if (invoiceQuantity != null)
-					{
-						//quantity += invoice.values(invoiceQuantity);
-
-						invoice.put(p,quantity);
-					}
-					invoice.put(p,quantity);
+					p.setQuantity(quantity);
+					invoice.add(p);
+					//Integer invoiceQuantity = invoice.get(p);
 					InvoiceDisplay.printInvoice(invoice);
 
 					//System.out.println(invoice);
@@ -83,7 +74,7 @@ public class InvoiceApp
 
 	}
 
-	public static void removeDisplay()
+	/*public static void removeDisplay()
 	{
 
 		boolean isValid = false;
@@ -101,18 +92,10 @@ public class InvoiceApp
 				{
 					askForQuantity();
 					int quantity = sc.nextInt();
-					//p.setQuantity(quantity);
-					//invoice.add(p);
-					Integer invoiceQuantity = invoice.get(p);
-					if (invoiceQuantity != null)
-					{
-						//quantity -= invoiceQuantity;
-						//invoice.remove(p);
-						//invoice.values().remove(invoiceQuantity);
-						//iter.remove();
-
-					}
-					invoice.put(p,quantity);
+					p.setQuantity(quantity);
+					invoice.remove(p);
+					//Integer invoiceQuantity = invoice.get(p);
+					//invoice.remove(p);
 					InvoiceDisplay.printInvoice(invoice);
 
 					//System.out.println(invoice);
@@ -127,9 +110,9 @@ public class InvoiceApp
 			removeDisplay();
 		}
 
-	}
+	}*/
 
-/*	public static void removeDisplay()
+	public static void removeDisplay()
 	{
 
 		boolean isValid = false;
@@ -157,9 +140,10 @@ public class InvoiceApp
 			}
 			System.out.println("Error! The UPC code was not found.");
 			InitialSalesDisplay.initialDisplay();
-		}*/
+		}
 
-	//InvoiceDisplay.printInvoice(invoice);
+	InvoiceDisplay.printInvoice(invoice);
+	}
 
 
 	/**
@@ -186,7 +170,7 @@ public class InvoiceApp
 	{
 
 		BigDecimal invoiceTotal = new BigDecimal(0);
-		for (Product lineItem : invoice.keySet())
+		for (Product lineItem : invoice)
 		{
 			invoiceTotal.add(lineItem.getPrice());
 		}

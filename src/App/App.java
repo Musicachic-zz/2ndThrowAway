@@ -10,10 +10,7 @@
 
 package App;
 
-import pottst1Prototype.data.Inventory;
-import pottst1Prototype.display.InitialSalesDisplay;
-import pottst1Prototype.display.InvoiceApp;
-import pottst1Prototype.display.Login;
+import Display.InitialSalesDisplay;
 
 /**
  * This class contains only the main method that calls the methods that will

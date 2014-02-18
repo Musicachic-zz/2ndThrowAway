@@ -11,11 +11,7 @@
 package Display;
 
 import Data.Product;
-
-import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * This class is the display of the invoice in a readable format. Inspired by
@@ -31,7 +27,7 @@ public class InvoiceDisplay
 	 * @param invoice This is the invoice that already has the arrayList of
 	 *                items.
 	 */
-	public static void printInvoice(Map<Product, Integer> invoice)
+	public static void printInvoice(ArrayList<Product> invoice)
 	{
 
 		System.out.println
@@ -47,13 +43,12 @@ public class InvoiceDisplay
 		}
 		*/
 
-		for (Map.Entry<Product, Integer> entry : invoice.entrySet())
+		for (Product p : invoice)
 		{
-			Product product = entry.getKey();
-			Integer quantity = entry.getValue();
+/*			invoiceTotal.add(lineItem.getPrice());
 			System.out.println(product.getDescription() + "    |" + quantity
-					                   +"           " + product.getPrice());
-			//System.out.println(p);
+					                   +"           " + product.getPrice());*/
+			System.out.println(p);
 		}
 
 		System.out.println
